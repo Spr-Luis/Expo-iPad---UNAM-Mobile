@@ -7,6 +7,7 @@
 //
 
 #import "InicioViewController.h"
+#import "PrincipalViewController.h"
 
 @interface InicioViewController ()
 
@@ -18,12 +19,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    _iniciar.layer.cornerRadius = 5;
+    _iniciar.layer.borderColor = [UIColor whiteColor].CGColor;
+    _iniciar.layer.borderWidth = 1.f;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
+- (IBAction)iniciarAction:(UIButton *)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PrincipalViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"principal"];
+    [self presentViewController:controller animated:YES completion:nil];
+}
 @end
